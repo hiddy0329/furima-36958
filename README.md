@@ -31,6 +31,13 @@
 - belongs_to :user
 - has_one    :order
 
+- extend ActiveHash::Associations::ActiveRecordExtensions
+- belongs_to :category
+- belongs_to :state
+- belongs_to :postage
+- belongs_to :region
+- belongs_to :shipping_date
+
 ## ordersテーブル
 | user                 | references | null: false, foreign_key: true |
 | item                 | references | null: false, foreign_key: true |
