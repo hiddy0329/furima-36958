@@ -53,6 +53,9 @@ class ItemsController < ApplicationController
   def check_item_and_user
     if current_user.id != @item.user_id
       redirect_to root_path
+    elsif current_user.id == @item.user_id && @item.order.present?
+      redirect_to root_path
+    else
     end
   end
   
