@@ -10,8 +10,8 @@ class OrderAddress
     validates :token
   end
   validates :shipping_prefecture_id, numericality: {other_than: 1, message: "を選択してください"}
-  validates :user_id, presence: {message: "must exist"}
-  validates :item_id, presence: {message: "must exist"}
+  validates :user_id, presence: {message: "が紐づいていません"}
+  validates :item_id, presence: {message: "が紐づいていません"}
   
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
