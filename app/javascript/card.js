@@ -13,7 +13,8 @@ const pay = () => {
       exp_year: `20${formData.get("order_address[exp_year]")}`,
       cvc: formData.get("order_address[cvc]"),
     };
-
+    
+    // 第一引数にcardを指定し送信、第二引数にアロー関数を設定しサーバー送信後の処理を記載
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
         const token = response.id;
