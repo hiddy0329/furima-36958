@@ -16,6 +16,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   validates :image, presence: { message: "を選択してください" }
+  has_many :comments
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
