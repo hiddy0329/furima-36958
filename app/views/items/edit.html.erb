@@ -4,7 +4,7 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: @item, url: item_path, method: :patch, id: "edit-post", local: true do |f| %>
+    <%= form_with model: @item, url: item_path, method: :patch, class: "form", local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
