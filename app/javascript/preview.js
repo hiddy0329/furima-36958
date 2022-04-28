@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', function(){
   // 新規投稿・編集ページのフォームを取得
-  const postForm = document.getElementById('new-post');
-  const editForm = document.getElementById('edit-post');
+  const formArea = document.querySelector('.form');
   // プレビューを表示するためのスペースを取得
   const previewList = document.getElementById('previews');
   // 新規投稿・編集ページのフォームがないならここで終了。
-  if (!postForm && !editForm) return null;
+  if (!formArea) return null;
 
   // input要素を取得
   const fileField = document.querySelector('input[type="file"][name="item[image]"]');
@@ -27,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const previewImage = document.createElement('img');
     previewImage.setAttribute('class', 'preview-image');
     previewImage.setAttribute('src', blob);
-    // 生成したHTMLの要素をブラウザに表示させる
+    // appendChildメソッドで生成したHTMLの要素をブラウザに表示させる
     previewWrapper.appendChild(previewImage);
     previewList.appendChild(previewWrapper);
   });
