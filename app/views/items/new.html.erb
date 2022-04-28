@@ -4,11 +4,12 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: @item, url: items_path, method: :post,local: true do |f| %>
+    <%= form_with model: @item, url: items_path, method: :post, id: "new-post", local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
     <%# 商品画像 %>
+    <div id="previews"></div>
     <div class="img-upload">
       <div class="weight-bold-text">
         商品画像
