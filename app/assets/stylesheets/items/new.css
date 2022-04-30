@@ -228,12 +228,23 @@
   font-size: 13px;
 }
 
-.preview {
+#previews {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.preview {
+  margin-right: 30px;
 }
 
 .preview-image {
-  width: 75%;
-  height: 75%;
+  width: 200px;
+  height: 150px;
+}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
+  margin-bottom: 5px;
 }
