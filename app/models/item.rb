@@ -14,8 +14,9 @@ class Item < ApplicationRecord
   
   has_one :order
   belongs_to :user
-  has_one_attached :image
-  validates :image, presence: { message: "を選択してください" }
+  has_many_attached :images
+  validates :images, presence: { message: "を選択してください" }
+  validates :images, length: { minimum: 1, maximum: 5, message: "は1枚以上5枚以下にしてください" }
   has_many :comments
 
   extend ActiveHash::Associations::ActiveRecordExtensions
