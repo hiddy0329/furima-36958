@@ -1,3 +1,4 @@
+// Htmlが読み込まれ、DOMツリーの構築が完成した時に以下の関数を実行
 document.addEventListener('DOMContentLoaded', function(){
   // 新規投稿・編集ページのフォームを取得
   const formArea = document.querySelector('.form');
@@ -6,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
   // 新規投稿・編集ページのフォームがないならここで終了。
   if (!formArea) return null;
 
-  // 投稿できる枚数の制限を定義
+  // 投稿できる画像枚数の制限を定義
   const imageLimits = 5;
 
   // プレビュー画像を生成・表示する関数
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function(){
     fileFieldsArea.appendChild(newFileField);
   };
 
-  // 指定したdata-indexを持つプレビューとfile_fieldを削除する
+  // 指定したdata-indexを持つプレビューとfile_fieldを削除する関数
   const deleteImage = (dataIndex) => {
     const deletePreviewImage = document.querySelector(`.preview[data-index="${dataIndex}"]`);
     deletePreviewImage.remove();
@@ -72,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // input要素で値の変化が起きた際に呼び出される関数の中身
   const changedFileField = (e) => {
-    // data-index（何番目を操作しているか）を取得
+    // data-index（何番目のfile-fieldを操作しているか）を取得
     const dataIndex = e.target.getAttribute('data-index');
 
     // e.target.files[0]により、指定した引数の中のデータを取得する
