@@ -4,7 +4,7 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: @item, url: item_path, method: :patch, class: "form", local: true do |f| %>
+    <%= form_with model: @item_form, url: item_path, method: :patch, class: "form", local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -18,7 +18,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :images, name: 'item[images][]', data: {index: 0} %>
+        <%= f.file_field :images, name: 'item_form[images][]', data: {index: 0} %>
       </div>
     </div>
 
