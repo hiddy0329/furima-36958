@@ -35,6 +35,10 @@ class ItemsController < ApplicationController
   def update
     # ユーザーが編集後の内容をバリデーションにかけるため、新たにインスタンスを生成する
     @item_form = ItemForm.new(item_form_params)
+
+    # 画像を選択し直さない場合は、自己代入演算子で@itemに紐づく画像をそのまま代入
+    @item_form.images ||= @item.images.blobs
+
     if @item_form.valid? 
       @item_form.update(item_form_params, @item)
       redirect_to item_path(@item.id)
