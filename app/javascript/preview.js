@@ -42,10 +42,10 @@ document.addEventListener('DOMContentLoaded', function(){
     // 2枚目用のfile_fieldを作成
     const newFileField = document.createElement('input');
     newFileField.setAttribute('type', 'file');
-    newFileField.setAttribute('name', 'item[images][]');
+    newFileField.setAttribute('name', 'item_form[images][]');
 
     // 最後のfile_fieldを取得
-    const lastFileField = document.querySelector('input[type="file"][name="item[images][]"]:last-child');
+    const lastFileField = document.querySelector('input[type="file"][name="item_form[images][]"]:last-child');
     // nextDataIndex = 最後のfile_fieldのdata-index + 1
     // Numberオブジェクトでdata-indexを数値に変換して計算
     const nextDataIndex = Number(lastFileField.getAttribute('data-index')) +1;
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function(){
   };
 
   // input要素を取得
-  const fileField = document.querySelector('input[type="file"][name="item[images][]"]');
+  const fileField = document.querySelector('input[type="file"][name="item_form[images][]"]');
 
   // input要素で値の変化が起きた際に呼び出される関数
   fileField.addEventListener('change', changedFileField);
