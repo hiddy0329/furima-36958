@@ -17,7 +17,7 @@ class ItemForm
 
   validates :images, presence: { message: "を選択してください" }
   validates :images, length: { minimum: 1, maximum: 5, message: "は1枚以上5枚以下にしてください" }
-  validates :user_id
+  validates :user_id, presence: true
 
   def save
     Item.create(name: name, description: description, category_id: category_id, state_id: state_id, 
