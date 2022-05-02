@@ -1,6 +1,9 @@
 class ItemForm
   include ActiveModel::Model
-  attr_accessor :name, :description, :category_id, :state_id, :postage_id, :region_id, :shipping_date_id, :price, :user_id, :images
+  attr_accessor( 
+    :name, :description, :category_id, :state_id, :postage_id, :region_id, :shipping_date_id, :price, :user_id, :images,
+    :id, :created_at, :datetime, :updated_at, :datetime
+  )
 
   validates :name,             presence: true
   validates :description,      presence: true
@@ -22,5 +25,9 @@ class ItemForm
   def save
     Item.create(name: name, description: description, category_id: category_id, state_id: state_id, 
                 postage_id: postage_id, region_id: region_id, shipping_date_id: shipping_date_id, price: price, user_id: user_id, images: images)
+  end
+
+  def update(params, item)
+    item.update(params)
   end
 end
