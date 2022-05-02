@@ -27,10 +27,16 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    # attributesメソッドで属性値をハッシュ形式で取得する
+    item_attributes = @item.attributes
+    @item_form = ItemForm.new(item_attributes)
   end
 
   def update
-    if @item.update(item_params)
+    # ユーザーが編集後の内容をバリデーションにかけるため、新たにインスタンスを生成する
+    @item_form = ItemForm.new(item_form_params)
+    if @item_form.valid? 
+      @item_form.update(item_form_params, @item)
       redirect_to item_path(@item.id)
     else
       render :edit
