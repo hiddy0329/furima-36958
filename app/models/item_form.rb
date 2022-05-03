@@ -2,7 +2,8 @@ class ItemForm
   include ActiveModel::Model
   attr_accessor( 
     :name, :description, :category_id, :state_id, :postage_id, :region_id, :shipping_date_id, :price, :user_id, :images,
-    :id, :created_at, :datetime, :updated_at, :datetime
+    :id, :created_at, :datetime, :updated_at, :datetime,
+    :tag_name
   )
 
   validates :name,             presence: true
