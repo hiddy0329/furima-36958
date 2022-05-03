@@ -248,3 +248,7 @@
   cursor: pointer;
   margin-bottom: 5px;
 }
+
+.tag-field {
+  margin-top: 2vh;
+}
