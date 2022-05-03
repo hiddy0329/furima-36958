@@ -24,8 +24,15 @@ class ItemForm
   validates :user_id, presence: true
 
   def save
-    Item.create(name: name, description: description, category_id: category_id, state_id: state_id, 
-                postage_id: postage_id, region_id: region_id, shipping_date_id: shipping_date_id, price: price, user_id: user_id, images: images)
+    # item情報を保存し、変数itemに代入
+    item = Item.create(name: name, description: description, category_id: category_id, state_id: state_id, 
+                      postage_id: postage_id, region_id: region_id, shipping_date_id: shipping_date_id, price: price, user_id: user_id, images: images)
+    # first_or_initializeメソッドを使い、入力されたtagがデータベースにあればそれを選択し、新規ならば新規保存をし、結果を変数tagに代入
+    tag = Tag.where(tag_name: tag_name).first_or_initialize
+    # tagを保存
+    tag.save
+    # 中間テーブルにitemとtagの紐付け情報を保存
+    ItemTagRelation.create(item_id: item.id, tag_id: tag.id)
   end
 
   def update(params, item)
