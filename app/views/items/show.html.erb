@@ -69,6 +69,10 @@
           <th class="detail-item">発送日の目安</th>
           <td class="detail-value"><%= @item.shipping_date.name %></td>
         </tr>
+        <tr>
+          <th class="detail-item">タグ</th>
+          <td class="detail-value"><%= @item.tags&.first&.tag_name %></td>
+        </tr>
       </tbody>
     </table>
     <div class="option">
