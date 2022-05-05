@@ -29,7 +29,9 @@ class ItemsController < ApplicationController
   def edit
     # attributesメソッドで属性値をハッシュ形式で取得する
     item_attributes = @item.attributes
+    # item_attributesを引数で受け取りインスタンスを生成
     @item_form = ItemForm.new(item_attributes)
+    # itemに紐づくtagを取得
     @item_form.tag_name = @item.tags&.first&.tag_name
   end
 
