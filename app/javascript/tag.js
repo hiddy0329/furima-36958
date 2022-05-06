@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 const tagNameInput = document.querySelector("#item_form_tag_name");
   if (tagNameInput){
-    console.log("読み込み完了");
+    const inputElement = document.getElementById("item_form_tag_name");
+    inputElement.addEventListener("input", () => {
+      const keyword = document.getElementById("item_form_tag_name").value;
+      console.log(keyword);
+    });
   };
 });
