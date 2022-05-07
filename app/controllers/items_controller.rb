@@ -56,10 +56,13 @@ class ItemsController < ApplicationController
   end
 
   def search
+    # 新規出品、編集時のインクリメンタル検索用の処理
     return nil if params[:keyword] == ""
     tag = Tag.where(['tag_name LIKE ?', "%#{params[:keyword]}%"] )
     render json:{ keyword: tag }
+    # /新規出品、編集時のインクリメンタル検索用の処理
     
+    # ransakを用いた検索処理
     # 検索オブジェクトを作成し、ransakを利用したフォームから送られたデータを受け取る
     @q = Item.ransack(params[:q])
     # resultメソッドで検索結果を受け取る
