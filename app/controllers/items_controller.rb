@@ -59,6 +59,11 @@ class ItemsController < ApplicationController
     return nil if params[:keyword] == ""
     tag = Tag.where(['tag_name LIKE ?', "%#{params[:keyword]}%"] )
     render json:{ keyword: tag }
+    
+    # 検索オブジェクトを作成し、ransakを利用したフォームから送られたデータを受け取る
+    @q = Item.ransack(params[:q])
+    # resultメソッドで検索結果を受け取る
+    @items = @q.result
   end
 
   private
