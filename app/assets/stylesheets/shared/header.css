@@ -67,7 +67,12 @@
 }
 
 .brand-list {
+  margin-right: 3vw;
   text-decoration: none;
+  color: #333333;
+}
+
+.search-list {
   color: #333333;
 }
 
