@@ -1,0 +1,49 @@
+<%= search_form_for @q, url: search_items_path, html: {id: "detailed-search-form"} do |f| %>
+  <div class="search-field">
+    <%= f.label :name_cont, '商品名' %>
+    <br>
+    <%= f.text_field :name_cont, placeholder: '商品名' %>
+  </div>
+  <div class="search-field">
+    <%= f.label :category_id_eq, 'カテゴリ' %>
+    <br>
+    <%= f.collection_select(:category_id_eq, Category.all, :id, :name, {include_blank: "---"}) %>
+  </div>
+  <div class="search-field">
+    <%= f.label :price_gteq, '価格'%>
+    <br>
+    <%= f.number_field :price_gteq %> 円以上
+    <br>
+    <%= f.number_field :price_lteq %> 円以下
+  </div>
+  <%= f.submit '検索' %>
+<% end %>
+
+<ul class='item-lists'>
+  <% @items.each do |item| %>
+    <li class='list'>
+      <%= link_to item_path(item.id) do %>
+      <div class='item-img-content'>
+        <%= image_tag item.images[0], class: "item-img" %>
+        <% if item.order.present? %>
+          <div class='sold-out'>
+            <span>Sold Out!!</span>
+          </div>
+        <% end %>
+      </div>
+      <div class='item-info'>
+        <h3 class='item-name'>
+          <%= item.name %>
+        </h3>
+        <div class='item-price'>
+          <span><%= item.price %>円<br><%= item.postage.name %></span>
+          <div class='star-btn'>
+            <%= image_tag "star.png", class:"star-icon" %>
+            <span class='star-count'>0</span>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
