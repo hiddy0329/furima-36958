@@ -1,0 +1,18 @@
+h3 {
+  padding-left: 10px;
+}
+
+.search-field {
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 30vw;
+}
+
+#q_price_lteq {
+  margin-top: 3px;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  margin-left: 10px;
+}
