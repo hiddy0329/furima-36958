@@ -1,8 +1,10 @@
+<h3>＜検索ページ＞</h3>
+<h3><%= link_to 'トップページへ戻る', root_path%></h3>
 <%= search_form_for @q, url: search_items_path, html: {id: "detailed-search-form"} do |f| %>
   <div class="search-field">
     <%= f.label :name, '商品名' %>
     <br>
-    <%= f.text_field :name, placeholder: '商品名' %>
+    <%= f.text_field :name, placeholder: '商品名', value: params[:q]&.dig(:name) %>
   </div>
   <div class="search-field">
     <%= f.label :user_nickname_cont, '出品者名' %>
@@ -12,7 +14,7 @@
   <div class="search-field">
     <%= f.label :category_id_in, 'カテゴリ' %>
     <br>
-    <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name, {include_blank: "---"}) %>
+    <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name) %>
   </div>
   <div class="search-field">
     <%= f.label :price_gteq, '価格'%>
@@ -21,7 +23,7 @@
     <br>
     <%= f.number_field :price_lteq %> 円以下
   </div>
-  <%= f.submit '検索' %>
+  <%= f.submit '検索', class: "submit-btn" %>
 <% end %>
 
 <ul class='item-lists'>
