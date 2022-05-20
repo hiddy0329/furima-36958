@@ -50,6 +50,7 @@ test:
 production:
   <<: *default
   database: furima_36958_production
+  # EC2用のデータベース設定
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
